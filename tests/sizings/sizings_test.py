@@ -16,3 +16,6 @@ class SizingTest(unittest.TestCase):
         _random_sizing_number = Util.generate_random_number()
         self.sizing.add_new_sizing(f"test by selenium {_random_sizing_number}", "Shirts")
         assert self.sizing.verify_if_sizing_is_created(f"test by selenium {_random_sizing_number}") == True
+
+    def test_add_product_dimensions(self):
+        pass

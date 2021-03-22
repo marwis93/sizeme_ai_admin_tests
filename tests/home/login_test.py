@@ -11,13 +11,13 @@ class LoginTest(unittest.TestCase):
         self.lp = LoginPage(self.driver)
 
     def test_invalid_login(self):
-        # self.lp.logout()
-        # self.lp.login()
+        self.lp.logout()
+        self.lp.login("invalid@invalid.com", "invalid")
 
         assert self.lp.verify_if_login_failed() is True
         assert self.lp.verify_title() is True
 
     def test_valid_login(self):
-        # self.lp.login()
+        self.lp.login("uvc52155@cuoly.com", "uvc52155")
 
         assert self.lp.verify_if_logged_in() is True

@@ -13,6 +13,7 @@ class LoginPage(BasePage):
     _login_button = "commit"
     _dashboard_text = "//h2[text()='Dashboard']"
     _login_failed_info = "//div[contains(text(),'Invalid Email or password.')]"
+    _logout_button = "//span[text()='Logout']"
 
     def get_email_field(self):
         return self.driver.find_element(By.ID, self._email_field)
@@ -23,6 +24,9 @@ class LoginPage(BasePage):
     def get_login_button(self):
         return self.driver.find_element(By.NAME, self._login_button)
 
+    def get_logout_button(self):
+        return self.driver.find_element(By.XPATH, self._logout_button)
+
     def enter_username(self, username):
         self.get_email_field().send_keys(username)
 
@@ -31,6 +35,9 @@ class LoginPage(BasePage):
 
     def click_login_button(self):
         self.get_login_button().click()
+
+    def click_logout_button(self):
+        self.get_logout_button().click()
 
     def clear_fields(self):
         self.get_email_field().clear()
@@ -54,3 +61,6 @@ class LoginPage(BasePage):
 
     def verify_title(self):
         return self.verify_page_title("SizingApp")
+
+    def logout(self):
+        self.click_logout_button()
